@@ -1,0 +1,2 @@
+require './workers/send_mail'
+require 'resque/tasks'

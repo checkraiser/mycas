@@ -1,0 +1,25 @@
+﻿<%# coding: UTF-8 -%>
+<div class="content">
+      <div class="row">
+        <div class="span6 offset3">
+          <h2>Login</h2>
+          <form action="/login" method="post">
+            <fieldset>
+              <div class="clearfix">
+                <input type="text" placeholder="Email" name="username">
+              </div>
+              <div class="clearfix">
+                <input type="password" placeholder="Password" name="password">
+              </div>
+              <input type="hidden" id="lt" name="lt" value="<%= escape_html @lt %>" />
+            <input type="hidden" id="service" name="service" value="<%= escape_html @service %>" />
+              <button class="btn primary" type="submit">Sign in</button>
+            </fieldset>
+            <fieldset>
+                <p class="option"><a href="/account/signup">Register</a> | <a href="/account/reset">Reset password</a></p>
+            </fieldset>
+            <p> <%=  escape_html @message[:message] if @message  %></p>
+          </form>
+        </div>
+      </div>
+    </div>

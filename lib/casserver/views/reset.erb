@@ -1,0 +1,15 @@
+<%# coding: UTF-8 -%>
+<form method="post" action="<%= @form_action || "reset" %>" id="form"
+      onsubmit="submitbutton = document.getElementById('reset-submit'); submitbutton.value='<%= t.notice.please_wait %>'; submitbutton.disabled=true; return true;">
+	 <h1>HPU Central Authentication Service</h1>
+  <div class="inset">
+  <p>
+    <label for="name">Email</label>
+    <input type="text" name="username" id="name">
+  </p>  
+  </div> 
+  <p class="p-container">      
+        <input type="submit" class="button" accesskey="l" value="Reset password"
+               tabindex="4" id="reset-submit" />
+  </p>  
+</form>
