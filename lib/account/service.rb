@@ -302,7 +302,9 @@ DataMapper::Model.raise_on_save_failure = true
 				newpass = generate_password(8)
 				user.password = hash_pass(newpass)
 				if  user.save
-					Resque.enqueue(SendEmail, email, newpass, 'reset')
+					#Resque.enqueue(SendEmail, email, newpass, 'reset')
+					sm = SendEmail.new({:to => email, :token => newpass, :reason => 'reset'})
+		  			sm.async.perform
 					#sendmail(user.email, register_confirm.token, :resetmail)
 					flash[:notice] = 'Email sent'
 					redirect '/'

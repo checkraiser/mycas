@@ -12,7 +12,7 @@ class SendEmail
   end
   def perform
   		puts "sending email to #{@to} with token #{@token} with reason #{@reason}"  
-      if reason == 'register'     
+      if @reason == 'register'     
         body = 'Please click  http://10.1.0.195:3000/account/activate/' + @token+' to confirm registration.'
       else
         body = "Your email:#{@to}, Your password: #{@token}"
